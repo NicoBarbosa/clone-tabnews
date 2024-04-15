@@ -4,13 +4,14 @@
   "description": "Implementação do tabnews.com.br, mas no meu caso é para fazer um projeto de ponta a ponta!",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run services:up && next dev",
+    "services:up": "docker compose -f infra/compose.yaml up -d",
+    "services:stop": "docker compose -f infra/compose.yaml stop",
+    "services:down": "docker compose -f infra/compose.yaml down",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
-    "test:watch": "jest --watchAll",
-    "docker": "docker compose -f infra/compose.yaml up -d",
-    "docker:down": "docker compose -f infra/compose.yaml down"
+    "test:watch": "jest --watchAll"
   },
   "author": "",
   "license": "MIT",
